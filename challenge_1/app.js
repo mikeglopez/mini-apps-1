@@ -1,13 +1,13 @@
-var gameOver = false;
 var count = 0;
 var isX = true;
+var gameOver = false;
 var game = ['', '', '',
   '', '', '',
   '', '', ''];
 
 var playTurn = function (event) {
   var id = event.target.id;
-  if (game[id] !== '') {
+  if (game[id] !== '' || gameOver) {
     return;
   }
   event.target.innerHTML = isX ? 'X' : 'O';
@@ -23,8 +23,9 @@ var checkForWins = function () {
   for (var i = 0; i < 9; i += 3) {
     if (game[i] !== '') {
       if ((game[i] === game[i + 1]) && (game[i] === game[i + 2])) {
-        gameOver;
         setTimeout(function () { alert(`${game[i]} Wins!`) }, 10);
+        gameOver = true;
+        // setTimeout(function() { reset() }, 100);
         return;
       }
     }
@@ -34,18 +35,50 @@ var checkForWins = function () {
   for (var i = 0; i < 9; i++) {
     if (game[i] !== '')
       if ((game[i] === game[i + 3]) && (game[i] === game[i + 6])) {
-        gameOver;
         setTimeout(function () { alert(`${game[i]} Wins!`) }, 10);
+        gameOver = true;
+        // setTimeout(function() { reset() }, 100);
         return;
       }
   }
 
+  // Check diagonals for wins
+  if (game[0] !== '') {
+    if ((game[0] === game[4]) && (game[0] === game[8])) {
+      setTimeout(function () { alert(`${game[0]} Wins!`) }, 10);
+      gameOver = true;
+      // setTimeout(function() { reset() }, 100);
+    }
+  }
+
+  if (game[2] !== '') {
+    if ((game[2] === game[4]) && (game[2] === game[6])) {
+      setTimeout(function () { alert(`${game[2]} Wins!`) }, 10);
+      gameOver = true;
+      // setTimeout(function() { reset() }, 100);
+    }
+  }
+
   // Check for Tie
   if (count >= 9) {
-    gameOver;
     alert('Tie!');
+    gameOver = true;
+    // setTimeout(function() { reset() }, 100);
     return;
   }
+}
+
+var reset = function() {
+  var spaces = document.getElementsByClassName('space');
+  for (var i = 0; i < spaces.length; i++) {
+    spaces[i].innerHTML = '';
+  }
+  game = ['', '', '',
+  '', '', '',
+  '', '', ''];
+  count = 0;
+  isX = true;
+  return;
 }
 
 
