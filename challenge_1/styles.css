@@ -15,8 +15,13 @@ table {
   height: 525px;
   border: 1px solid #000000;
   background-color: #FFFFFF;
+  box-shadow: 5px 5px 20px #334D3F;
 }
 
 .space {
   border: 1px solid #000000;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  font-size: 7em;
 }
