@@ -3,6 +3,12 @@ body {
   background-color: #E0EBEB;
 }
 
+#container {
+  width: 525px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 h1 {
   text-align: center;
   font-size: 4em;
@@ -24,4 +30,13 @@ table {
   height: 150px;
   text-align: center;
   font-size: 7em;
+}
+
+button {
+  background-color: #FFB133;
+  color: #FFFFFF;
+  font-size: 2em;
+  margin: 35px 0;
+  padding: 10px 30px;
+  border-radius: 10px;
 }

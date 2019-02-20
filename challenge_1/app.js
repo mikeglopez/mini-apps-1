@@ -73,6 +73,7 @@ var reset = function() {
   for (var i = 0; i < spaces.length; i++) {
     spaces[i].innerHTML = '';
   }
+  gameOver = false;
   game = ['', '', '',
   '', '', '',
   '', '', ''];
@@ -92,3 +93,6 @@ document.getElementById('5').addEventListener('click', playTurn);
 document.getElementById('6').addEventListener('click', playTurn);
 document.getElementById('7').addEventListener('click', playTurn);
 document.getElementById('8').addEventListener('click', playTurn);
+
+// Event listener for reset button
+document.getElementById('reset').addEventListener('click', reset);
