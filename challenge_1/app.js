@@ -83,16 +83,13 @@ var reset = function() {
 }
 
 
-// Event listeners for individual spaces
-document.getElementById('0').addEventListener('click', playTurn);
-document.getElementById('1').addEventListener('click', playTurn);
-document.getElementById('2').addEventListener('click', playTurn);
-document.getElementById('3').addEventListener('click', playTurn);
-document.getElementById('4').addEventListener('click', playTurn);
-document.getElementById('5').addEventListener('click', playTurn);
-document.getElementById('6').addEventListener('click', playTurn);
-document.getElementById('7').addEventListener('click', playTurn);
-document.getElementById('8').addEventListener('click', playTurn);
+// Event listener for individual spaces
+var spaces = document.getElementsByClassName('space')
+
+for (var i = 0; i < spaces.length; i++) {
+  spaces[i].addEventListener('click', function(loc) { playTurn(loc) });
+}
+
 
 // Event listener for reset button
 document.getElementById('reset').addEventListener('click', reset);
