@@ -5,6 +5,10 @@ var winner;
 var game = ['', '', '',
   '', '', '',
   '', '', ''];
+  var scores = {
+    X: 0,
+    O: 0
+  }
 
 var playTurn = function (event) {
   var id = event.target.id;
@@ -26,6 +30,7 @@ var checkForWins = function () {
       if ((game[i] === game[i + 1]) && (game[i] === game[i + 2])) {
         setTimeout(function () { alert(`${game[i]} Wins!`) }, 10);
         winner = game[i];
+        scores[game[i]]++
         gameOver = true;
         return;
       }
@@ -38,8 +43,8 @@ var checkForWins = function () {
       if ((game[i] === game[i + 3]) && (game[i] === game[i + 6])) {
         setTimeout(function () { alert(`${game[i]} Wins!`) }, 10);
         winner = game[i];
+        scores[game[i]]++
         gameOver = true;
-        // setTimeout(function() { reset() }, 100);
         return;
       }
   }
@@ -49,6 +54,7 @@ var checkForWins = function () {
     if ((game[0] === game[4]) && (game[0] === game[8])) {
       setTimeout(function () { alert(`${game[0]} Wins!`) }, 10);
       winner = game[0];
+      scores[game[0]]++
       gameOver = true;
       return;
     }
@@ -58,6 +64,7 @@ var checkForWins = function () {
     if ((game[2] === game[4]) && (game[2] === game[6])) {
       setTimeout(function () { alert(`${game[2]} Wins!`) }, 10);
       winner = game[2];
+      scores[game[2]]++
       gameOver = true;
       return;
     }
@@ -88,6 +95,7 @@ var reset = function() {
   '', '', '',
   '', '', ''];
   count = 0;
+  document.getElementById('score').innerHTML = `SCORES:<br>X: ${scores['X']}<br>O: ${scores['O']}`;
   // isX = true;
   return;
 }
