@@ -1,6 +1,7 @@
 var count = 0;
 var isX = true;
 var gameOver = false;
+var winner;
 var game = ['', '', '',
   '', '', '',
   '', '', ''];
@@ -24,8 +25,8 @@ var checkForWins = function () {
     if (game[i] !== '') {
       if ((game[i] === game[i + 1]) && (game[i] === game[i + 2])) {
         setTimeout(function () { alert(`${game[i]} Wins!`) }, 10);
+        winner = game[i];
         gameOver = true;
-        // setTimeout(function() { reset() }, 100);
         return;
       }
     }
@@ -36,6 +37,7 @@ var checkForWins = function () {
     if (game[i] !== '')
       if ((game[i] === game[i + 3]) && (game[i] === game[i + 6])) {
         setTimeout(function () { alert(`${game[i]} Wins!`) }, 10);
+        winner = game[i];
         gameOver = true;
         // setTimeout(function() { reset() }, 100);
         return;
@@ -46,24 +48,26 @@ var checkForWins = function () {
   if (game[0] !== '') {
     if ((game[0] === game[4]) && (game[0] === game[8])) {
       setTimeout(function () { alert(`${game[0]} Wins!`) }, 10);
+      winner = game[0];
       gameOver = true;
-      // setTimeout(function() { reset() }, 100);
+      return;
     }
   }
 
   if (game[2] !== '') {
     if ((game[2] === game[4]) && (game[2] === game[6])) {
       setTimeout(function () { alert(`${game[2]} Wins!`) }, 10);
+      winner = game[2];
       gameOver = true;
-      // setTimeout(function() { reset() }, 100);
+      return;
     }
   }
 
   // Check for Tie
   if (count >= 9) {
-    alert('Tie!');
+    setTimeout(function() { alert('Tie!'), 10 });
+    winner = 'tie';
     gameOver = true;
-    // setTimeout(function() { reset() }, 100);
     return;
   }
 }
@@ -73,12 +77,18 @@ var reset = function() {
   for (var i = 0; i < spaces.length; i++) {
     spaces[i].innerHTML = '';
   }
+
+  if (winner !== 'tie') {
+    isX = (winner === 'X' ? true : false);
+  } else {
+    isX = true;
+  }
   gameOver = false;
   game = ['', '', '',
   '', '', '',
   '', '', ''];
   count = 0;
-  isX = true;
+  // isX = true;
   return;
 }
 
