@@ -1,0 +1,28 @@
+{
+  "name": "csv-report-generator",
+  "version": "1.0.0",
+  "description": "A client-server app that generates CSV reports from JSON data",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeglopez/rpt12-mini-apps-1.git"
+  },
+  "author": "Mike Lopez <mikeglopez.91@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeglopez/rpt12-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/mikeglopez/rpt12-mini-apps-1#readme"
+}
