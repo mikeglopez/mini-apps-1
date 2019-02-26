@@ -11,3 +11,23 @@ h1 {
 main {
   text-align: center;
 }
+
+form label, form input {
+  background-color: #C6ECD7;
+  color: #000000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  font-size: 1em;
+  height: auto;
+}
+
+form label:hover, form input:hover {
+  background-color: #8CD9AF;
+  color: #FFFFFF;
+}
+
+form label:active, form input:active {
+  background-color: #66CC94;
+  color: #FFFFFF;
+}
