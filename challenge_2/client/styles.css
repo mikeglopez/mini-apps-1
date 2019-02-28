@@ -31,3 +31,11 @@ form label:active, form input:active {
   background-color: #66CC94;
   color: #FFFFFF;
 }
+
+#csv {
+  display: none;
+}
+
+#report {
+  white-space: pre;
+}
