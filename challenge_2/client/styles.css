@@ -13,8 +13,8 @@ main {
 }
 
 form label, form input {
-  background-color: #C6ECD7;
-  color: #000000;
+  background-color: #1D7B47;
+  color: #FFFFFF;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #000000;
@@ -23,19 +23,36 @@ form label, form input {
 }
 
 form label:hover, form input:hover {
-  background-color: #8CD9AF;
+  background-color: #339966;
   color: #FFFFFF;
 }
 
 form label:active, form input:active {
-  background-color: #66CC94;
+  background-color: #8CD9AF;
   color: #FFFFFF;
 }
 
-#csv {
+#csv, #download {
   display: none;
 }
 
 #report {
   white-space: pre;
+}
+
+
+a:link {
+  color: #8CD9AF;
+}
+
+a:visited {
+  color: #1D7B47;
+}
+
+a:hover {
+  color: #8CD9AF;
+}
+
+a:active {
+  color: #1D7B47;
 }

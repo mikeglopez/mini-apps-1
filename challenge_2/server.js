@@ -29,7 +29,7 @@ app.post('/', upload.single('file'), (req, res) => {
   res.send(report);
 });
 
-var generate = function (jsonStr) {
+var generate = (jsonStr) => {
   if (typeof jsonStr === 'string') {
     var jsonObj = JSON.parse(jsonStr); // JSON object
     var keys = Object.keys(jsonObj);
@@ -37,7 +37,7 @@ var generate = function (jsonStr) {
     keys = keys.join(',');
     var output = [];
 
-    var checkChildren = function (child) {
+    var checkChildren = (child) => {
       var vals = [];
       for (var key in child) {
         if (key !== 'children') {

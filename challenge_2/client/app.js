@@ -14,14 +14,24 @@ $('form').on('submit', (e) => {
         url: '/',
         method: 'POST',
         data: { json: fileString },
-        success: function (data) {
+        success: (data) => {
           $('#csv').css('display', 'block');
+          $('#download').css('display', 'block');
           $('#report').text(data);
+          downloadCSV(data);
         },
-        error: function (error) {
+        error: (error) => {
           console.log('ERROR', error);
         }
       });
     };
   }
 });
+
+var downloadCSV = (csv) => {
+  var filename = 'export.csv';
+  csv = `data:text/csv;charset=utf-8,${csv}`;
+  var data = encodeURI(csv);
+  document.getElementById('download').setAttribute('href', data);
+  document.getElementById('download').setAttribute('download', filename);;
+}
