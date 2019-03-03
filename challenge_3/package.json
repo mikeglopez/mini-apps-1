@@ -1,0 +1,32 @@
+{
+  "name": "checkout",
+  "version": "1.0.0",
+  "description": "A single-page app that takes a user through a series of forms that simulate a shopping cart checkout experience",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js & ./node_modules/.bin/babel client --watch --out-dir public --presets @babel/preset-react --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeglopez/rpt12-mini-apps-1.git"
+  },
+  "author": "Mike Lopez <mikeglopez.91@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeglopez/rpt12-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/mikeglopez/rpt12-mini-apps-1#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "nodemon": "^1.18.10"
+  }
+}
