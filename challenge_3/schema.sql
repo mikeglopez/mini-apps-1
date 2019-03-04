@@ -4,17 +4,17 @@ USE checkout;
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  password TEXT NOT NULL,
-  addressLine1 TEXT NOT NULL,
+  name TEXT,
+  email TEXT,
+  password TEXT,
+  addressLine1 TEXT,
   addressLine2 TEXT,
-  city TEXT NOT NULL,
-  state TEXT NOT NULL,
-  zip INTEGER(5) NOT NULL,
-  phone TEXT NOT NULL,
-  creditCard INTEGER NOT NULL,
-  expiryDate TEXT NOT NULL,
-  CVV INTEGER(3) NOT NULL,
-  billingZip INTEGER(5) NOT NULL
+  city TEXT,
+  state TEXT,
+  zip TEXT,
+  phone TEXT,
+  creditCard TEXT,
+  expiryDate TEXT,
+  CVV TEXT,
+  billingZip TEXT
 );

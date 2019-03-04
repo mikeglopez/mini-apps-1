@@ -4,11 +4,19 @@ body {
   color: #505050;
 }
 
+#description {
+  margin: -20px 0 30px;
+}
+
 #app {
   margin: 0 auto;
   width: 60%;
   border: 1px solid #DBDADA;
   border-radius: 15px;
+}
+
+#app input {
+  margin-left: 5px;
 }
 
 h1 {
