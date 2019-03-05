@@ -43,6 +43,8 @@ class Board extends React.Component {
   }
 
   checkForWins(player) {
+    var board = this.state.board;
+
     // Check for ties
     if (this.state.count >= 42) {
       this.setState({ gameOver: true });
@@ -51,8 +53,6 @@ class Board extends React.Component {
     }
 
     // Check for horizontal wins
-    var board = this.state.board;
-
     for (var row = 0; row < board.length; row++) {
       var count = 0;
       for (var col = 0; col < board[row].length; col++) {
@@ -71,6 +71,27 @@ class Board extends React.Component {
         }
       }
     }
+
+    // Check for vertical wins
+    for (var col = 0; col < 7; col++) {
+      var count = 0;
+      for (var row = 0; row < board.length; row++) {
+        if (board[row][col] === player) {
+          count++;
+          if (count >= 4) {
+            this.setState({
+              winner: player,
+              gameOver: true
+            });
+            setTimeout(() => (alert(`${player === 'R' ? 'Red' : 'Black'} wins!`)), 50);
+            return;
+          }
+        } else {
+          count = 0;
+        }
+      }
+    }
+
   }
 
   render() {
