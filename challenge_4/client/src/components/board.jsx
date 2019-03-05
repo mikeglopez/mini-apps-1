@@ -22,26 +22,55 @@ class Board extends React.Component {
   }
 
   playTurn(event) {
-    this.checkForWins();
+    if (!this.state.gameOver) {
+      var col = event.target.getAttribute('data-x');
 
-    var col = event.target.getAttribute('data-x');
+      // check if column is full
+      for (var i = this.state.board.length - 1; i >= 0; i--) {
+        if (this.state.board[i][col] === '') { // column is open
+          this.state.board[i][col] = this.state.turn; // sets the colored piece in the board array
+          this.setState({ count: this.state.count + 1 });
 
-    // check if column is full
-    for (var i = this.state.board.length - 1; i >= 0; i--) {
-      if (this.state.board[i][col] === '') { // column is open
-        this.state.board[i][col] = this.state.turn; // sets the colored piece in the board array
-        this.setState({count: this.state.count + 1});
+          this.checkForWins(this.state.turn);
 
-        this.setState({turn: (this.state.turn === 'R' ? 'B' : 'R')});
-        return;
+          this.setState({ turn: (this.state.turn === 'R' ? 'B' : 'R') });
+          return;
+        }
       }
+      alert('This column is full!');
     }
-    alert('This column is full!');
     return;
   }
 
-  checkForWins() {
-    console.log('Checking for wins...');
+  checkForWins(player) {
+    // Check for ties
+    if (this.state.count >= 42) {
+      this.setState({ gameOver: true });
+      alert('Tie!');
+      return;
+    }
+
+    // Check for horizontal wins
+    var board = this.state.board;
+
+    for (var row = 0; row < board.length; row++) {
+      var count = 0;
+      for (var col = 0; col < board[row].length; col++) {
+        if (board[row][col] === player) {
+          count++;
+          if (count >= 4) {
+            this.setState({
+              winner: player,
+              gameOver: true
+            });
+            setTimeout(() => (alert(`${player === 'R' ? 'Red' : 'Black'} wins!`)), 50);
+            return;
+          }
+        } else {
+          count = 0;
+        }
+      }
+    }
   }
 
   render() {
